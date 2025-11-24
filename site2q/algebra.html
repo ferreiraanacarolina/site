@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matemática » Álgebra</title>
+  <link rel="stylesheet" href="style_modelo1.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo">Meu Portal de Estudos</div>
+
+    <!-- Botões Contato e Votação -->
+    <button id="openFormBtn" class="btn-area" type="button">Contato</button>
+    <button id="openVoteBtn" class="btn-area" type="button">Votação</button>
+
+    <nav class="nav-menu">
+      <a href="index_modelo1.html">Início</a>
+      <a href="matematica.html">Voltar: Matemática</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Modal do formulário de contato -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" id="closeFormBtn">&times;</span>
+    <h2>Contato</h2>
+    <form id="contactForm" action="javascript:void(0);">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+      <button class="btn-area" type="submit">Enviar</button>
+    </form>
+    <p id="formMessage" style="display:none; color: var(--accent); margin-top: 10px;">Mensagem enviada com sucesso!</p>
+  </div>
+</div>
+
+<main class="container">
+  <h1 class="page-title">Álgebra</h1>
+  
+  <section class="content-block">
+    <h2>Equações</h2>
+    <p>
+      Resolver equações é descobrir qual valor da incógnita torna a
+      igualdade verdadeira.
+    </p>
+    <img src="imagens/equa.jpg" alt="equações ">
+  </section>
+
+  <section class="content-block">
+    <h2>Funções</h2>
+    <p>
+      Relação entre duas grandezas. Ex: f(x) = 2x + 3.
+     Pode ser uma função afim, quadrática, algébrica, exponencial e  logarítmica. 
+    </p>
+    <img src="imagens/funçao.jpg" alt="equações ">
+  </section>
+
+  <section class="content-block">
+    <h2>Conheça este trabalho desenvolvido por mim!!!</h2>
+    <p>Confira a meu trabalho sobre sistema lineres de forma mais aprofundada!</p>
+    <a class="btn-area" href="sistemas lineares.pdf">VER TRABALHO</a>
+  </section>
+</main>
+
+<!-- RODAPÉ -->
+<footer class="site-footer">
+© 2025 · Todos os direitos reservados Ana Carolina Ferreira
+</footer>
+
+  <script>
+    // Botão para abrir o modal de contato
+    const openFormBtn = document.getElementById('openFormBtn');
+    // Elemento modal de contato
+    const contactModal = document.getElementById('contactModal');
+    // Botão para fechar o modal de contato
+    const closeFormBtn = document.getElementById('closeFormBtn');
+    // Formulário dentro do modal de contato
+    const contactForm = document.getElementById('contactForm');
+    // Mensagem de sucesso exibida após enviar o formulário
+    const formMessage = document.getElementById('formMessage');
+
+    // Evento para abrir o modal de contato e resetar o formulário
+    openFormBtn.addEventListener('click', () => {
+      contactModal.style.display = 'block'; // Exibe modal
+      formMessage.style.display = 'none';  // Esconde mensagem de sucesso
+      contactForm.style.display = 'block'; // Exibe formulário
+      contactForm.reset();                  // Reseta campos do formulário
+    });
+
+    // Evento para fechar o modal de contato ao clicar no botão
+    closeFormBtn.addEventListener('click', () => {
+      contactModal.style.display = 'none'; // Esconde modal
+    });
+
+    // Evento para fechar modal caso clique fora da área do modal
+    window.addEventListener('click', (event) => {
+      if (event.target === contactModal) {
+        contactModal.style.display = 'none'; // Esconde modal
+      }
+    });
+
+    // Evento para submissão do formulário de contato
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();                 // Evita comportamento padrão
+      // Aqui processar o formulário, atualmente apenas mostra mensagem
+      contactForm.style.display = 'none';    // Esconde formulário
+      formMessage.style.display = 'block';   // Exibe mensagem de sucesso
+    });
+
+    // Função e elementos para modal de votação
+    const openVoteBtn = document.getElementById('openVoteBtn');  // Botão abrir votação
+    const votingModal = document.createElement('div');
+    votingModal.innerHTML = `<!-- HTML do Modal de Votação -->
+    <div id="votingModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-button" id="closeVoteBtn">&times;</span>
+        <h2>Votação das Matérias</h2>
+        <form id="voteForm">
+          <p>Selecione a matéria para votar:</p>
+          <div>
+            <input type="radio" id="vote-algebra" name="vote-subject" value="algebra.html" />
+            <label for="vote-algebra">Álgebra</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-artes" name="vote-subject" value="artes.html" />
+            <label for="vote-artes">Artes</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-biologia" name="vote-subject" value="biologia.html" />
+            <label for="vote-biologia">Biologia</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-edfisica" name="vote-subject" value="edfisica.html" />
+            <label for="vote-edfisica">Educação Física</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-estatistica" name="vote-subject" value="estatistica.html" />
+            <label for="vote-estatistica">Estatística</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-filosofia" name="vote-subject" value="filosofia.html" />
+            <label for="vote-filosofia">Filosofia</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-fisica" name="vote-subject" value="fisica.html" />
+            <label for="vote-fisica">Física</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-geografia" name="vote-subject" value="geografia.html" />
+            <label for="vote-geografia">Geografia</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-geometria" name="vote-subject" value="geometria.html" />
+            <label for="vote-geometria">Geometria</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-historia" name="vote-subject" value="historia.html" />
+            <label for="vote-historia">História</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-ingles" name="vote-subject" value="ingles.html" />
+            <label for="vote-ingles">Inglês</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-portugues" name="vote-subject" value="portugues.html" />
+            <label for="vote-portugues">Português</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-quimica" name="vote-subject" value="quimica.html" />
+            <label for="vote-quimica">Química</label>
+          </div>
+          <div>
+            <input type="radio" id="vote-sociologia" name="vote-subject" value="sociologia.html" />
+            <label for="vote-sociologia">Sociologia</label>
+          </div>
+          <div style="margin-top: 10px;">
+            <button class="btn-area" type="submit">Votar</button>
+          </div>
+        </form>
+      </div>
+    </div>`;  // Final do HTML do modal de votação
+    document.body.appendChild(votingModal);  // Adiciona modal ao DOM
+
+    // Elementos e eventos do modal de votação
+    const votingModalElement = document.getElementById('votingModal'); // Container modal
+    const closeVoteBtn = document.getElementById('closeVoteBtn'); // Botão fechar modal
+    const voteForm = document.getElementById('voteForm'); // Formulário voto
+
+    // Abrir modal de votação ao clicar no botão
+    openVoteBtn.addEventListener('click', () => {
+      votingModalElement.style.display = 'block';
+    });
+
+    // Fechar modal ao clicar no botão fechar
+    closeVoteBtn.addEventListener('click', () => {
+      votingModalElement.style.display = 'none';
+    });
+
+    // Fechar modal ao clicar fora da caixa modal
+    window.addEventListener('click', (event) => {
+      if (event.target === votingModalElement) {
+        votingModalElement.style.display = 'none';
+      }
+    });
+
+    // Evento para submissão do formulário de votação
+    voteForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const selectedSubject = voteForm.elements['vote-subject'].value;
+      if (!selectedSubject) {
+        alert('Por favor, selecione uma matéria para votar.');
+        return;
+      }
+      // Pega votos do localStorage ou inicializa objeto
+      let votes = JSON.parse(localStorage.getItem('votes')) || {};
+      votes[selectedSubject] = (votes[selectedSubject] || 0) + 1; // Incrementa votos
+      localStorage.setItem('votes', JSON.stringify(votes));       // Salva no localStorage
+      alert('Obrigado pelo seu voto!');
+      votingModalElement.style.display = 'none';                  // Fecha modal
+      window.location.href = 'vote-ranking.html';                  // Redirect para ranking
+    });
+  </script>
+
+</body>
+</html>

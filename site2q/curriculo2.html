@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo – Ana Carolina Ferreira </title>
+<!-- Link para o arquivo CSS compartilhado do site -->
+<link rel="stylesheet" href="style_modelo1.css">
+</head>
+<body>
+<!-- Container principal do currículo -->
+<div class="wrap">
+  <!-- Barra superior com informações pessoais e foto -->
+  <div class="topbar">
+    <div class="info">
+      <h1>Ana Carolina Ferreira</h1>
+      <div class="subtitle">Tecnica em Internet das Coisas</div>
+      <div class="contact">
+        São Paulo – Brasil • Tel: (55) 11 913451911 • Email: Ferreiraanacarolina16@gmail.com<br>
+        <a href="https://www.linkedin.com/in/ana-carolina-ferreira-50586b283" target="_blank">LinkedIn</a> •
+        <a href="index_modelo1.html">Voltar ao Menu Principal</a>
+      </div>
+    </div>
+
+    <!-- Botão para abrir o formulário -->
+    <button id="openFormBtn" class="btn-area" type="button" style="height: 40px; align-self: center;">Contato</button>
+
+<img class="avatar" src="imagens/carol.jpg" alt="Foto de perfil">
+  </div>
+
+  <!-- Seção de Educação -->
+  <div class="section">
+    <div class="section-title">EDUCAÇÃO</div>
+    <div class="cols">
+      <div>
+        <strong>2013-2022</strong><br>
+        São Paulo – Brasil<br><br>
+        <strong>2023-2025</strong><br>
+        São Paulo – Brasil<br><br>
+        <strong>Idiomas</strong><br>
+        Inglês: Intermediario<br>
+        <strong>Software</strong><br>
+        Word, Excel.
+      </div>
+      <div>
+        <div class="item">
+          <h4>Ensino Básico</h4>
+          <small>Colégio Henrique</small>
+        </div>
+        <div class="item">
+          <h4>Ensino Médio Tecnico IOT</h4>
+          <small>Senac SP</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Experiências Capacitadoras -->
+  <div class="section">
+    <div class="section-title">EXPERIÊNCIAS CAPACITADORAS</div>
+    <div class="item">
+      <ul class="bullets">
+        <li>Robótica - Período de aprendizado na Equipe de Robótica SENAC (2022 - Atualmente)</li>
+        <li>Oficina de debates SENAMUN (2024 - Atualmente)</li>
+        <li>Cursinho Preparatório ACEPUSP (2025 - Atualmente)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Seção de Habilidades -->
+  <div class="section">
+    <div class="section-title">Habilidades</div>
+    <div class="item">
+      <ul class="bullets">
+        <li>Boa Comunicação</li>
+        <li>Pontualidade</li>
+        <li>Trabalho em equipe</li>
+        <li>Organização</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Seção de Interesses -->
+  <div class="section">
+    <div class="section-title">INTERESSES</div>
+    <ul class="bullets">
+      <li>Ingressar no mercado de trabalho.</li>
+      <li>Cursar Biomedicina com ênfase em imunologia.</li>
+      <li>Aprimorar meus conhecimentos.</li>
+    </ul>
+  </div>
+
+ 
+
+<!-- Modal do formulário de contato -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" id="closeFormBtn">&times;</span>
+    <h2>Contato</h2>
+    <form id="contactForm" action="javascript:void(0);">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+      <button class="btn-area" type="submit">Enviar</button>
+    </form>
+    <p id="formMessage" style="display:none; color: var(--accent); margin-top: 10px;">Mensagem enviada com sucesso!</p>
+  </div>
+</div>
+
+<script>
+  // Função para abrir o modal
+  const openFormBtn = document.getElementById('openFormBtn');
+  const contactModal = document.getElementById('contactModal');
+  const closeFormBtn = document.getElementById('closeFormBtn');
+  const contactForm = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  openFormBtn.addEventListener('click', () => {
+    contactModal.style.display = 'block';
+    formMessage.style.display = 'none';
+    contactForm.style.display = 'block';
+    contactForm.reset();
+  });
+
+  closeFormBtn.addEventListener('click', () => {
+    contactModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === contactModal) {
+      contactModal.style.display = 'none';
+    }
+  });
+
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // Process form submission here. For now, just show success message
+    contactForm.style.display = 'none';
+    formMessage.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
